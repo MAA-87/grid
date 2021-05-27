@@ -11,8 +11,10 @@
 }
     main{
         display: grid;
-        width:auto;
-        grid-template-columns: 20px repeat(6, 160px) 20px; 
+        width: auto;
+        padding: 0;
+        margin: 0;
+        grid-template-columns: minmax((20px repeat(6, 160px) 20px), 1fr); 
         grid-template-rows: 50px 300px 35px repeat(4,120px) repeat(20,70px);
       
         column-gap: 25px;
@@ -34,45 +36,62 @@ body{
 
 
     }
-  nav{
+  nav, nav  a{
   display: flex;
-        grid-area: 1 / 1 / 2 / 7 ;
+        grid-area: 1 / 1 / 2 / 8 ;
         background-color: #2D2928;
         color: #FFFFFF;
-        justify-content: space-between;
-        align-content: center;
+      
+        flex-wrap: nowrap;
+        padding-left: 20px;
         align-items: center;
+      justify-content:start;  
+        
+        font: 12pt Georgia 300;
+
+
 
 
       
     }
+    nav:hover{
+        color: #626262;
+    }
+  
    .cirplace{
-        grid-area: 1 / 6 / 2 / 9 ;
+       display: flex;
+        grid-area: 1 / 7 / 2 / 9 ;
         background-color: #2D2928;
-        color: #FFFFFF;
+        flex-wrap: nowrap;
+        justify-content: flex-end ;
+        align-items : center;
+ 
     }
 .circ{
-float: right;
+
+
         border: 15px solid #FFFFFF;
         border-radius: 15px;
-       grid-column: 4/6;
+      
       margin: 5px;
 
      
     }
     header{
         grid-area: 2 / 1 / 3 / 9;
-     
+     font: 140pt Georgia 1000;
     color: #282828;
 
     }
     aside{
-        display: inline-block;
+        display: flex;
         grid-area: 3 / 2 / 4 / 8;
         border-top: 4pt double #9F9F9F;
         border-bottom: 4pt double #9F9F9F;
 color: #333333;
-padding-bottom: 0px;
+margin: 0;
+padding: 0;
+align-items: center;
 
     }
   
@@ -81,10 +100,14 @@ padding-bottom: 0px;
         margin: 0;
         padding: 0;
         text-decoration: none;
-        align-content: center;
+    
         justify-content: left;
+        font: 14pt Georgia 100;
         
         
+    }
+    aside>li:hover{
+        color: #4F4F4F;
     }
 
 ul> li, a {
@@ -94,33 +117,46 @@ justify-self: center;
 color: #4F4F4F;
         
     }
+
+
+    ul> li, a:hover{
+        color:#BCBCBC;
+    }
     .sect1{
+        margin: 0;
+        padding: 0;
         padding-top: 35px;
-   grid-row: 4 / 8;
-   grid-column: 2 / 5;
+        margin-left: 5px;
+        padding-right: 25px;
+        grid-area: 4 / 2 / 6 / 5;
+   /* grid-row: 4 / 7;
+   grid-column: 2 / 5; */
     }
 
     .sect2{
 
 
         padding-top: 35px;
-        grid-row: 4 / 5 ;
-        grid-column:  5 / 8;
+        grid-area: 4 / 5 / 5 / 8;
+
+        margin-right:5px ;
+    
+        
 
     }
     .sect3{
-        padding-top: 35px;
-        grid-area: 5 / 5/ 6 / 8;
+padding-top: 15px;
+        grid-area: 5 / 5 / 6 / 8;
         
     }
     .sect4{
-        padding-top: 35px;
         grid-area: 6 / 5 / 7 / 8;
     }
     .sect5{
-        padding-top: 35px;
         grid-area: 7 / 5 / 8 / 8;
+        padding-bottom: 35px;
     }
+
    .sect6{
 
         grid-area: 9/2/10/8;
@@ -131,6 +167,10 @@ color: #4F4F4F;
     #rm{
         text-align: right;
         color: #982216 ;
+        font: 14px Georgia 200;
+    }
+    #rm:hover{
+        color: #4e120c;
     }
     .sect7{
         
@@ -203,12 +243,12 @@ color: #4F4F4F;
         border-top: 4px solid #999999;
     }
     .sect17{
-        grid-area: 12/7/16/8;
+        grid-area: 13/7/16/8;
         border-top: 4px solid #999999;
     }
     .sect18{
 
-        grid-area: 14/7/19/8;
+        grid-area: 16/7/19/8;
         border-top: 4px solid #999999;
     }
     .sect19{
@@ -336,6 +376,9 @@ footer{
     color:#982216 ;
     font-weight: normal;
 }
+.tn:hover{
+    color: #4e120c;
+}
 
 
 
@@ -358,18 +401,19 @@ footer{
    }
 
 
-    
 
 
-   .sect1 .img1{
-display: flex;
+
+ .img1{
+display:flex;
+font: 20px Georgia;
         width: 500px;
         height: 320px;
         background-color: #333333;
         color: #FFFFFF;
 justify-content: space-around;
 align-items: center;
-float: left;            
+float: bottom;            
     }
     .sect2 .img2, .sect4 .img2, .sect5 .img2{
         display: flex;
@@ -380,22 +424,30 @@ float: left;
 
 align-items: center;
 justify-content: space-around;
+
         border: 1px solid #999999;
+
+        padding: 5px;
+     
+        margin-right: 10px;
         background-color: #333333;
         color: #FFFFFF;
     
     }
-  .sect8 .img3,   .sect9 .img3 , .sect10 .img3 , .sect11 .img3 ,.sect12 .img3, .sect13 .img3, .sect14 .img3{
+  .sect8 .img3, .sect9 .img3 , .sect10 .img3 , .sect11 .img3 ,.sect12 .img3, .sect13 .img3, .sect14 .img3{
 display: flex;
-margin: 5px;
+margin: 0;
+padding: 0;
+margin:5px;
         width: 60px;
         height: 60px;
         background-color: #333333;
         color: #FFFFFF;
         float: left      ;
-      font-size: 20px;
+      font: 16px Georgia;
       align-items: center;
-justify-content: space-around;
+      
+justify-content:center;
   
       
       
@@ -410,6 +462,7 @@ justify-content: space-around;
         height: 600px;
         background-color: #333333;
         color: #FFFFFF;
+        font: 16px Georgia;
         
     }
 
@@ -444,7 +497,12 @@ justify-content: space-around;
 </style>
 <body>
     <main>
-        <nav>Sign Up | Login | RSS Feed | Archived News
+        <nav>
+
+           <a href="#"> Sign Up | </a><a href="#"> Login | </a>
+           <a href="#"> RSS Feed | </a>
+           <a href="#"> Archived News</a>
+            
             </nav>
                    <div class="cirplace">
              <div class="circ"></div>
@@ -466,58 +524,76 @@ justify-content: space-around;
 
 
         </aside>
-        <section class="sect1"> <div class="img1">500x320px</div>   <h3>Lorem ipsum dolor sit  adipisicing elit. </h3>
+        <section class="sect1"> <div class="img1">500 x 320px</div>   <h3>Sect1 dolor sit  adipisicing elit. </h3>
              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit architecto similique, 
             expedita voluptatibus dignissimos repudiandae nemo inventore earum dicta rerum.
              Dolor dolorum fugit amet est laudantium numquam deleniti voluptatem voluptatibus.
-        <p id="rm">READ MORE ≫ </p>
             </section>
-        <section class="sect2"><div class="img2">100x100px</div>
-            <h3>Lorem ipsum dolor sit. </h3>
+
+        <section class="sect2"><div class="img2">100 x 100px img2</div>
+            <h3>Sect2 ipsum dolor. </h3>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit architecto similique, 
            expedita voluptatibus dignissimos repudiandae nemo inventore earum dicta rerum.
-           <p id="rm">READ MORE ≫ </p>
         </section>
+
         <section class="sect3"> 
-         <h3>Consectetur adipisicing elit. </h3>
+         <h3>Sect3 consectetur adipisicing. </h3>
          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit architecto similique, 
-         expedita voluptatibus dignissimos repudiandae nemo inventore earum dicta rerum.
-         <p id="rm">READ MORE ≫ </p>
-             </section>
-        <section class="sect4"><div class="img2">100x100px</div> <h3>Dolor sit amet consectetur adipisicing elit. </h3>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit architecto similique, 
-            expedita voluptatibus dignissimos repudiandae nemo inventore earum dicta rerum.
-            <p id="rm">READ MORE ≫ </p>
+         expedita voluptatibus dignissimos repudiandae nemo inventore earum dicta rerum   
         </section>
-        <section class="sect5"><div class="img2">100x100px</div> <h3>Lorem ipsum consectetur adipisicing elit. </h3>
+        <section class="sect4"><div class="img2">100 x 100px</div> <h3>Sect4 amet consectetur sect4. </h3>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit architecto similique, 
             expedita voluptatibus dignissimos repudiandae nemo inventore earum dicta rerum.
-            <p id="rm">READ MORE ≫ </p>
+        </section>
+        <section class="sect5"><div class="img2">100 x 100px</div> <h3>Sect5 ipsum </h3>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit architecto similique, 
+            expedita voluptatibus dignissimos repudiandae nemo inventore earum dicta rerum.
+           
         </section>
         <section class="sect6"></section>
+
         <section class="sect7">LOREM ISPUM</section>
         <section class="sect8">LOREM ISPUM</div></section>
-        <section class="sect9"><div class="img3">60 x 60px</div>
-            <h3>Dolor sit  adipisicing elit. </h3>
-            Fugit architecto similique, expedita voluptatibus dignissimos</section>
-        <section class="sect10"><div class="img3">60 x 60px</div>
-            <h3>Dolor sit  adipisicing elit. </h3>
-            Fugit architecto similique, expedita voluptatibus dignissimos</section>
 
+        <section class="sect9"><div class="img3">60<br>x <br> 60px</div>
+            <h3>sect9 Dolor sit . </h3>
+            Fugit architecto similique, expedita voluptatibus dignissimos
+            <p id="rm">READ MORE ≫ </p>
         </section>
-        <section class="sect11"><div class="img3">60 x 60px</div><h3>Dolor sit  adipisicing elit. </h3>
-            Fugit architecto similique, expedita voluptatibus dignissimos</section></section>
-        <section class="sect12"><div class="img3">60 x 60px</div><h3>Dolor sit  adipisicing elit. </h3>
-            Fugit architecto similique, expedita voluptatibus dignissimos</section></section>
-        <section class="sect13"><div class="img3">60 x 60px</div><h3>Dolor sit  adipisicing elit. </h3>
-            Fugit architecto similique, expedita voluptatibus dignissimos</section></section>
-        <section class="sect14"><div class="img3">60 x 60px</div><h3>Dolor sit  adipisicing elit. </h3>
-            Fugit architecto similique, expedita voluptatibus dignissimos</section></section>
+
+        <section class="sect10"><div class="img3">60<br>x <br> 60px</div>
+            <h3>sect10.Dolor. </h3>
+            Fugit architecto similique, expedita voluptatibus dignissimos
+            <p id="rm">READ MORE ≫ </p>
+        </section>
+
+       
+        <section class="sect11"><div class="img3">60<br>x <br> 60px</div>
+            <h3>sect11 Dolor . </h3>
+            Fugit architecto similique, expedita voluptatibus dignissimos
+        <p id="rm">READ MORE ≫ </p>
+        </section>
+        <section class="sect12"><div class="img3">60<br>x <br> 60px</div>
+            <h3>sect12 elit. </h3>
+            Fugit architecto similique, expedita voluptatibus dignissimos
+        <p id="rm">READ MORE ≫ </p>
+        </section>
+        <section class="sect13"><div class="img3">60<br>x <br> 60px</div>
+            <h3> sect 13 cing elit. </h3>
+            Fugit architecto similique, expedita voluptatibus dignissimos
+        <p id="rm">READ MORE ≫ </p>
+        </section>
+        <section class="sect14"><div class="img3">60<br>x <br> 60px</div>
+            <h3>sect 14 . </h3>
+            Fugit architecto similique, expedita voluptatibus dignissimos
+        <p id="rm">READ MORE ≫ </p>
+        </section>
+
         <section class="sect15">Advertisement<div class="img4">100x600px</div></section>
        
        
         <section class="sect16">
-            <ul> Categories
+            <ul> Categories sect16
             <li><a href="#">Lorem ipsum              </a></li>
             <li><a href="#">Dolor sit                </a></li>
             <li><a href="#">Inventore earum            </a></li>
@@ -525,31 +601,28 @@ justify-content: space-around;
             <li><a href="#">Repudiandae nemo         </a></li>
             <li><a href="#">Voluptatibus              </a></li>
             <li><a href="#">Inventore earum          </a></li>
-            <li><a href="#">Lorem ipsum              </a></li>
-            <li><a href="#">Dolor sit                </a></li>
+            
+            
 
         </ul></section>
         <section class="sect17">
-            <ul> Link Header
+            <ul> Link Header sect17
                 <li><a href="#">Lorem ipsum              </a></li>
                 <li><a href="#">Dolor sit                </a></li>
                 <li><a href="#">Amet consectetur         </a></li>
                 <li><a href="#">Repudiandae nemo         </a></li>
                 <li><a href="#">Voluptatibus  </a></li>
-                <li><a href="#">Inventore earum          </a></li>
-                <li><a href="#">Lorem ipsum              </a></li>
-                <li><a href="#">Dolor sit                </a></li>
-                <li><a href="#">Dicta rerum              </a></li>
+             
+               
             </ul>
         </section>
         <section class="sect18">
-            <ul> Link Header
+            <ul> Link Header sect18
                 <li><a href="#">Lorem ipsum              </a></li>
                 <li><a href="#">Dolor sit                </a></li>
-                <li><a href="#">Amet consectetur         </a></li>
-                <li><a href="#">Repudiandae nemo         </a></li>
-                <li><a href="#">Voluptatibus  </a></li>
-                <li><a href="#">Inventore earum          </a></li>
+                <li><a href="#">Amet nsectetur         </a></li>
+                <li><a href="#">Repundae nemo         </a></li>
+               
                
             </ul>
         </section>
@@ -658,7 +731,10 @@ justify-content: space-around;
     </div>
 
         
-<footer>copyright 2013Domain Name - All Rights Reserved</footer>
+<footer>copyright © 2021 Domain Name - All Rights Reserved
+    <br>
+    this page created by Mikhailov Alexander by template from https://tpverstak.ru/psd-grid-css/
+</footer>
     </main>
 </body>
 </html>
